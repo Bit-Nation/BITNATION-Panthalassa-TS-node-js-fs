@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "rm NodeJsFs.js && tsc -p tsconfig.dev.json",
+    "build:prod": "rm "
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,12 @@
   },
   "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme",
   "dependencies": {
+    "@types/node": "^8.0.33",
     "BITNATION-Panthalassa-TS-fs-interface": "git+https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-fs-interface.git#ee0e5c9d0382cf3880b125d0427f005da8ae6fce",
     "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.2",
+    "ts-jest": "^21.1.0"
   }
 }
