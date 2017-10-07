@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run build:dev && jest --verbose",
-    "build:dev": "rm NodeJsFs.js && tsc -p tsconfig.dev.json",
+    "build:dev": "rm -f NodeJsFs.js && tsc -p tsconfig.dev.json",
     "build:prod": "tsc",
     "postinstall": "npm run build:prod"
   },
