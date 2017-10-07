@@ -1,0 +1,20 @@
+{
+  "name": "BITNATION-Panthalassa-TS-node-js-fs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs/issues"
+  },
+  "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme"
+}
