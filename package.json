@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs/issues"
   },
-  "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme"
+  "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme",
+  "dependencies": {
+    "BITNATION-Panthalassa-TS-fs-interface": "git+https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-fs-interface.git#ee0e5c9d0382cf3880b125d0427f005da8ae6fce"
+  }
 }
