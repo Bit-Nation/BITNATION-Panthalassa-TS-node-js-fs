@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "rm NodeJsFs.js && tsc -p tsconfig.dev.json",
-    "build:prod": "rm "
+    "build:prod": "tsc",
+    "postinstall": "npm run build:prod"
   },
   "repository": {
     "type": "git",
