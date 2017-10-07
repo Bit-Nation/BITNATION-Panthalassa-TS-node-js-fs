@@ -1,6 +1,6 @@
 import fs = require('fs');
 import Path = require('path');
-import FileSystemInterface from './node_modules/BITNATION-Panthalassa-TS-fs-interface/FileSystemInterface'
+import FileSystemInterface from 'BITNATION-Panthalassa-TS-fs-interface/FileSystemInterface'
 
 export class NodeJsFs implements FileSystemInterface
 {
