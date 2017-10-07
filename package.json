@@ -29,5 +29,9 @@
     "@types/jest": "^21.1.2",
     "jest": "^21.2.1",
     "ts-jest": "^21.1.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "mapCoverage": true
   }
 }
