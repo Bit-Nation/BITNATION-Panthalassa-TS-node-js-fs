@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run build:dev && jest --verbose",
     "build:dev": "rm NodeJsFs.js && tsc -p tsconfig.dev.json",
     "build:prod": "tsc",
     "postinstall": "npm run build:prod"
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@types/jest": "^21.1.2",
+    "jest": "^21.2.1",
     "ts-jest": "^21.1.0"
   }
 }
