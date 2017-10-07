@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build:dev && jest --verbose",
+    "build:dev": "rm NodeJsFs.js && tsc -p tsconfig.dev.json",
+    "build:prod": "tsc",
+    "postinstall": "npm run build:prod"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs/issues"
   },
-  "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme"
+  "homepage": "https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-node-js-fs#readme",
+  "dependencies": {
+    "@types/node": "^8.0.33",
+    "BITNATION-Panthalassa-TS-fs-interface": "git+https://github.com/Bit-Nation/BITNATION-Panthalassa-TS-fs-interface.git#ee0e5c9d0382cf3880b125d0427f005da8ae6fce",
+    "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.2",
+    "jest": "^21.2.1",
+    "ts-jest": "^21.1.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "mapCoverage": true
+  }
 }
