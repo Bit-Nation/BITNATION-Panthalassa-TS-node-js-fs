@@ -2,7 +2,7 @@
   "name": "BITNATION-Panthalassa-TS-node-js-fs",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./NodeJsFs.js",
   "scripts": {
     "test": "npm run build:dev && jest --verbose",
     "build:dev": "rm -f NodeJsFs.js && tsc -p tsconfig.dev.json",
