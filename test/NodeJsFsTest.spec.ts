@@ -1,6 +1,6 @@
 import {factory, NodeJsFs} from './../NodeJsFs'
 import Path = require('path');
-import {unlinkSync} from "fs";
+import {existsSync, unlinkSync} from "fs";
 
 describe('NodeJsFs', () => {
 
@@ -30,14 +30,15 @@ describe('NodeJsFs', () => {
 
         test('writing file successfully', async () => {
 
-            const filePath:string = '/test.txt';
+            const filePath:string = 'test.txt'+Math.random();
 
             let nfs:NodeJsFs = new NodeJsFs('.', Path);
 
-            expect(await nfs.writeFile(filePath, 'hi'))
-                .toBe('test.txt');
+            await nfs.writeFile(filePath, 'hi');
 
-            unlinkSync('./test.txt');
+            expect(await nfs.fileExist(filePath)).toBeTruthy();
+
+            await nfs.deleteFile(filePath)
 
         });
 
@@ -60,13 +61,7 @@ describe('NodeJsFs', () => {
             }
 
             //Prove if there is a way to assert instance of error class
-            expect(JSON.stringify(error))
-                .toBe(JSON.stringify({
-                    errno: -2,
-                    code: 'ENOENT',
-                    syscall: 'access',
-                    path: '.'+fileName
-                }));
+            expect(error.message).toBe('File: '+nodeFs.normalizePath(fileName)+' does not exist');
 
         });
 
@@ -88,19 +83,63 @@ describe('NodeJsFs', () => {
 
             expect(response).toBe('test content');
 
-            unlinkSync(fileName);
+            nodeFs.deleteFile(fileName);
 
         });
 
     });
 
-    describe('Method - create', () => {
+    describe('Method - factory', () => {
 
         test('create node js fs by factory', async () => {
 
            expect(factory('./')).toBeInstanceOf(NodeJsFs);
 
         });
+
+    });
+
+    describe('Method - delete file', () => {
+
+        test('delete file successfully', async () => {
+
+            const nodeFs:NodeJsFs = new NodeJsFs('.', Path);
+
+            const fileName = 'file'+Math.random();
+
+            await nodeFs.writeFile(fileName, 'hi');
+
+            expect(await nodeFs.fileExist(fileName)).toBeTruthy();
+
+            await nodeFs.deleteFile(fileName);
+
+            expect(await nodeFs.fileExist(fileName)).toBeFalsy();
+
+        });
+
+    });
+
+    describe('Method - file exist', () => {
+
+        test('check if file exist that doesn\'t exist', async () => {
+
+            const nodeFs:NodeJsFs = new NodeJsFs('.', Path);
+
+            expect(await nodeFs.fileExist('hi')).toBeFalsy();
+
+        });
+
+        test('check if file exist that does exist', async () => {
+
+            const nodeFs:NodeJsFs = new NodeJsFs('.', Path);
+
+            const fileName = 'file'+Math.random();
+
+            nodeFs.writeFile(fileName, 'hi');
+
+            expect(nodeFs.fileExist(fileName)).toBeTruthy();
+
+        })
 
     });
 
